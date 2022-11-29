@@ -433,4 +433,70 @@ misc
 miscellaneus
 miscs
 
+function item(itemName,itemId, count){
+    this.itemName = itemName;
+    this.itemId = itemId;
+    this.count = count;
+}
+
+function colLogRow (header,totalItems,kc,items) {
+    this.header = header;
+    this.totalItems = totalItems;
+    this.obtained = items.length;
+    this.kc = kc;
+    this.items = items;
+}
+
+function Collection_Log (bosses,raids,clues,minigames,other){
+    this.bosses = bosses;
+    this.raids = raids;
+    this.clues = clues;
+    this.minigames = minigames;
+    this.other = other;
+}
+
+function test() {
+    
+    let ahrimsHood = new item("Ahrims_Hood",12345,1);
+    let barrowsItems = new Array();
+    barrowsItems.push(ahrimsHood);
+    let barrows = new colLogRow("Barrows","24",10,barrowsItems);
+    
+    let bosses = new Array();
+    bosses.push(barrows);
+    
+    let colLog = new Collection_Log (bosses,null,null,null,null);
+    
+    console.log(colLog.bosses[0].items[0]);
+    console.log(JSON.stringify(colLog));
+}
+
+function logic(){
+    //as the user goes through the col log.
+    //Grab the Header
+    let header = "Tombs of Amascut";
+    
+    //grab the total items
+    //Grab Obtained: x/x
+    //Split the string and grab any nums after x/
+    let totalItems = 26;
+    
+    //kc will be odd. Theres different scenarios that need to be accounted for.
+    //For now lets just say the basic where theres one kc.
+    //Grab whatever the text is with kc. Only take the number. Set kc to that number.
+    let kc = 41;
+    
+    //now loop through all items in the row
+    //for(item in row){
+    //create new item with that item, set the obtained to 0
+    //if item.opacity = 0
+    // get the obtained
+    //set the obtained to not 0
+    //}
+    //create a new colLogRow with this stuff.
+    //create a new colLog with this stuff when it's all done.
+}
+test();
+
+
 
